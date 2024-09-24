@@ -1,0 +1,60 @@
+SCS:
+  scs:
+    ip: 192.168.3.1
+    web_interface: no
+    hardware:
+      cpu: intel core i7
+      gpu: nvidia 4090
+    user: administrator
+    password: null
+IWS:
+  IWS-1:
+    network:
+      ip:
+        192.168.3.1:
+          web_interface1: 80
+          web_interface2: 8080
+        192.168.4.1:
+          web_interface1: 80
+          web_interface2: 80
+    credentials:
+      user:
+      password:
+  IWS-2:
+    ip: 192.168.3.1
+    web_interface: no
+    network:
+      ip: 
+        192.168.3.1:
+          web_interface: 80
+          web_interface2: 8080
+        192.168.4.1:
+          web_interface1: 80
+          web_interface2: 80
+    credentials:
+      user:
+      password:
+  IWS-3:
+    network:
+      ip:
+        192.168.3.1:
+          web_interface1: 80
+          web_interface2: 8080
+        192.168.4.1:
+          web_interface1: 80
+          web_interface2: 80
+    credentials:
+      user:
+      password:
+      
+  # common:
+  #   update_stos:
+  # paws-iws-1:
+  #   ip: 192.168.3.121
+  #   web_interface: no
+  #   hardware:
+  #     cpu: intel core i9
+  #     gpu: nvidia 5090
+  #   user: root
+  #   password: null
+# CAB:
