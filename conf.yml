@@ -1,12 +1,12 @@
-SCS:
-  scs:
-    ip: 192.168.3.1
-    web_interface: no
-    hardware:
-      cpu: intel core i7
-      gpu: nvidia 4090
-    user: administrator
-    password: null
+# SCS:
+#   scs:
+#     ip: 192.168.3.1
+#     web_interface: no
+#     hardware:
+#       cpu: intel core i7
+#       gpu: nvidia 4090
+#     user: administrator
+#     password: null
 IWS:
   IWS-1:
     network:

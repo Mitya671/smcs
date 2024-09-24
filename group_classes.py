@@ -1,6 +1,7 @@
 from nicegui import ui
 import inspect
 from typing import Any, Dict, List
+import traceback
 
 
 class host_item(ui.item):
@@ -30,7 +31,7 @@ class Group(ui.tab_panel):
             self.host_config = group_config[hostname]
             self.hostname = hostname
             self.available_functions = {}
-        
+
         def draw(self):
             with self:
                 host_options = self.available_functions.keys()
@@ -38,7 +39,8 @@ class Group(ui.tab_panel):
                     print(host_option)
                     button = host_item(
                         name=host_option,
-                        text=host_option, on_click=lambda ho=host_option: print(f"ABOBAA {ho}")
+                        text=host_option,
+                        on_click=lambda ho=host_option: print(f"ABOBAA {ho}"),
                     ).style("text-align: center;")
 
         def validate_config(self):
@@ -56,6 +58,7 @@ class Group(ui.tab_panel):
             def decorator(func):
                 func.required_params = required_params
                 return func
+
             return decorator
 
         @require_params("ip", "web_interface")
@@ -65,8 +68,9 @@ class Group(ui.tab_panel):
 
 class IWS_Group(Group):
     def __init__(self, config, group):
+        traceback.print_stack()
         super().__init__(config, group)
-
+   
     class Host(Group.Host):
         def __init__(self, hostname, group_config):
             super().__init__(hostname, group_config)
@@ -80,8 +84,6 @@ class IWS_Group(Group):
         @require_params("ip", "web_interface")
         def check_interface(ip, web_interface):
             pass
-
-
 
 
 # class IWS_Group(Group):
@@ -105,6 +107,7 @@ class IWS_Group(Group):
 #         def check_network_interface(ip, web_interface):
 #             pass
 
+
 class SCS_Group(Group):
 
     def __init__(self, config, group):
@@ -115,12 +118,10 @@ class SCS_Group(Group):
     #     def __init__(self, hostname):
     #         super().__init__(hostname)
 
-        # @Group.Host.require_params("ip")
-        # def check_network(ip):
-        #     pass
+    # @Group.Host.require_params("ip")
+    # def check_network(ip):
+    #     pass
 
-        # @Group.Host.require_params("ip", "web_interface")
-        # def check_web_interface(ip, web_interface):
-        #     pass
-
-
+    # @Group.Host.require_params("ip", "web_interface")
+    # def check_web_interface(ip, web_interface):
+    #     pass
